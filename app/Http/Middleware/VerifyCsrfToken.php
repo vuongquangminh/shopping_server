@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         //
         'api/auth/login', // Bỏ qua kiểm tra CSRF cho endpoint login
         'api/auth/register', // Bỏ qua kiểm tra CSRF cho endpoint register
+        'api/auth/authUser', // Bỏ qua kiểm tra CSRF cho endpoint register
     ];
 }
