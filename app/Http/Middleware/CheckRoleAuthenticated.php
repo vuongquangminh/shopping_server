@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 
 class CheckRoleAuthenticated
 {
@@ -16,10 +15,13 @@ class CheckRoleAuthenticated
      */
     public function handle($request, Closure $next, $role)
     {
-        if (!$request->user()->hasRole($role)) {
-            return abort(403);
+        // Kiểm tra nếu người dùng không có vai trò cần thiết
+        if (!$request->user() || !$request->user()->hasRole($role)) {
+            // Trả về lỗi 403 nếu không có quyền
+            return abort(403, 'Unauthorized action.');
         }
 
+        // Tiếp tục với yêu cầu nếu người dùng có quyền
         return $next($request);
     }
 }

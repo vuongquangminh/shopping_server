@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -42,6 +43,7 @@ class AuthController extends Controller
 
         $data = $request->all();
         $data['role_name'] = 'admin';
+        $data['password'] = Hash::make($data['password']);
         $result = User::create($data);
         return response()->json([
             "message" => "Thành Công",
