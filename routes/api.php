@@ -38,4 +38,5 @@ Route::group([
     'role' => 'admin'
 ], function () {
     Route::get('user', [UserController::class, 'index']);
+    Route::post('user', [UserController::class, 'store']);
 });

@@ -13,8 +13,10 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'api/auth/login', // Bỏ qua kiểm tra CSRF cho endpoint login
-        'api/auth/register', // Bỏ qua kiểm tra CSRF cho endpoint register
-        'api/auth/authUser', // Bỏ qua kiểm tra CSRF cho endpoint register
+        // 'api/auth/login', // Bỏ qua kiểm tra CSRF cho endpoint login
+        // 'api/auth/register', // Bỏ qua kiểm tra CSRF cho endpoint register
+        // 'api/auth/authUser', // Bỏ qua kiểm tra CSRF cho endpoint register
+        // // 'api/user', // Bỏ qua kiểm tra CSRF cho endpoint register
+        'api/*',
     ];
 }
