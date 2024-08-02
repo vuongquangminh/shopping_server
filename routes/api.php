@@ -39,4 +39,5 @@ Route::group([
 ], function () {
     Route::get('user', [UserController::class, 'index']);
     Route::post('user', [UserController::class, 'store']);
+    Route::post('user/{id}', [UserController::class, 'update']);
 });
