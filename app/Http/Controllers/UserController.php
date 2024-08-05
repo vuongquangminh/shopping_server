@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::query();
+        $user = User::query()->orderBy('id');
 
         return response()->json($user->get(), 200);
     }
@@ -125,7 +125,7 @@ class UserController extends Controller
                 'message' => 'Chỉnh sửa người dùng thành công'
             ], 200);
         } else {
-            $data = User::create([
+            $data = $query->update([
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
@@ -141,5 +141,13 @@ class UserController extends Controller
 
         // Nếu không có file 'avatar', trả về thông báo lỗi
         return response()->json(['message' => 'Chỉnh sửa người dùng không thành công'], 400);
+    }
+    public function destroy($id)
+    {
+        $query = User::findOrFail($id)->delete();
+        return response()->json([
+            'data' => $query,
+            'message' => 'Chỉnh sửa người dùng không thành công'
+        ], 200);
     }
 }

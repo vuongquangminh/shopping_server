@@ -40,4 +40,5 @@ Route::group([
     Route::get('user', [UserController::class, 'index']);
     Route::post('user', [UserController::class, 'store']);
     Route::post('user/{id}', [UserController::class, 'update']);
+    Route::delete('user/{id}', [UserController::class, 'destroy']);
 });
