@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TypeProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +48,19 @@ Route::group([
     Route::post('user/{id}', [UserController::class, 'update']);
     Route::delete('user/{id}', [UserController::class, 'destroy']);
 
-    // Product
-    Route::get('type-product', [ProductController::class, 'index']);
+    // Type Product
+    Route::get('type-product', [TypeProductController::class, 'index']);
+    Route::post('type-product', [TypeProductController::class, 'store']);
+    Route::put('type-product/{id}', [TypeProductController::class, 'update']);
+    Route::delete('type-product/{id}', [TypeProductController::class, 'destroy']);
+
+    //Product
+    Route::get('product', [ProductController::class, 'index']);
+    Route::post('product', [ProductController::class, 'store']);
+    Route::put('product/{id}', [ProductController::class, 'update']);
+    Route::delete('product/{id}', [ProductController::class, 'destroy']);
+
+
+    // Order
+    Route::get('order', [OrderController::class, 'index']);
 });
