@@ -19,9 +19,9 @@ class CreateProductsTable extends Migration
             $table->integer('type_product_id');
             $table->foreign('type_product_id')->references('id')->on('type_products')->onDelete('cascade');
             $table->text('description')->nullable();
-            $table->bigInteger('price');
-            $table->string('image');
-            $table->integer('so_luong');
+            $table->bigInteger('price')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('so_luong')->nullable();
             $table->timestamps();
         });
     }

@@ -19,8 +19,8 @@ class CreateCartTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('so_luong');
-            $table->bigInteger('total_price');
+            $table->integer('so_luong')->nullable();
+            $table->bigInteger('total_price')->nullable();
             $table->timestamps();
         });
     }
