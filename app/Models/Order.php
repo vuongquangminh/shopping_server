@@ -11,7 +11,20 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
-        'total_price',
-        'list_product_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function orderProduct()
+    {
+        return $this->hasMany(OrderProduct::class, 'order_id');
+    }
+
+    public function nhanSu()
+    {
+        return $this->belongsTo(User::class, 'nhan_su_id');
+    }
 }

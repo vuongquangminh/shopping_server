@@ -48,6 +48,12 @@ Route::group([
     Route::post('user/{id}', [UserController::class, 'update']);
     Route::delete('user/{id}', [UserController::class, 'destroy']);
 
+    // Admin / Nhan su / Khach Hang
+    Route::get('user/customers/all', [UserController::class, 'customersAll']);
+    Route::get('user/nhan-su/all', [UserController::class, 'nhanSuAll']);
+
+
+
     // Type Product
     Route::get('type-product', [TypeProductController::class, 'index']);
     Route::post('type-product', [TypeProductController::class, 'store']);

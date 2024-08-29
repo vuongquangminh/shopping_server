@@ -8,10 +8,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $query = Order::query();
-        return response()->json([
-            "data" => $query->get(),
-            "message" => "Lấy dữ liệu thành công"
-        ]);
+        $query = Order::query()->with(['user', 'nhanSu']);
+        return response()->json($query->get(), 200);
     }
 }
