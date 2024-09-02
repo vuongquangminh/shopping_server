@@ -18,6 +18,7 @@ class Product extends Model
         'so_luong',
     ];
 
+
     public function typeProduct(): BelongsTo
     {
         return $this->belongsTo(TypeProduct::class, 'type_product_id');

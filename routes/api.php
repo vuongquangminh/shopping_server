@@ -69,4 +69,7 @@ Route::group([
 
     // Order
     Route::get('order', [OrderController::class, 'index']);
+    Route::get('order/{id}', [OrderController::class, 'show']);
+    Route::put('order/{id}', [OrderController::class, 'update']);
+    Route::delete('order/{id}', [OrderController::class, 'destroy']);
 });
