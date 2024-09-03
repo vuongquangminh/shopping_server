@@ -16,7 +16,7 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $query = OrderProduct::query()->where('order_id', $id)->get();
+        $query = OrderProduct::query()->where('order_id', $id)->with(['order', 'order.user', 'product'])->get();
         return $query;
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DoanhSoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TypeProductController;
@@ -72,4 +73,8 @@ Route::group([
     Route::get('order/{id}', [OrderController::class, 'show']);
     Route::put('order/{id}', [OrderController::class, 'update']);
     Route::delete('order/{id}', [OrderController::class, 'destroy']);
+
+
+    //Daonh so
+    Route::get('doanh-so', [DoanhSoController::class, 'index']);
 });
