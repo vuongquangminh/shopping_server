@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DoanhSoController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Passwordcontroller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TypeProductController;
 use App\Http\Controllers\UserController;
@@ -75,6 +76,9 @@ Route::group([
     Route::delete('order/{id}', [OrderController::class, 'destroy']);
 
 
-    //Daonh so
+    //Doanh so
     Route::get('doanh-so', [DoanhSoController::class, 'index']);
+
+    // Password
+    Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
