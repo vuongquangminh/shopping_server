@@ -10,9 +10,12 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        // dd($request);
-        $product = Product::query()->orderBy("id")->with('typeProduct');
-        return response()->json($product->get(), 200);
+        $totalProduct = Product::count();
+        $product = Product::query()->
+            // where('name', 'like', "%{$request->search}%")
+            whereRaw('LOWER(name) LIKE ?', ['%' . strtolower($request->search) . '%'])
+            ->orderBy("id")->with('typeProduct')->skip(($request->page - 1) * $request->pageSize)->take($request->pageSize);
+        return response()->json(["product" => $product->get(), "total" => $totalProduct], 200);
     }
 
     public function store(Request $request)
