@@ -83,4 +83,4 @@ Route::group([
     Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
 
-Route::post('list-product', [ProductController::class, 'index']);
+Route::post('list-product-user', [ProductController::class, 'indexViewUser']);

@@ -10,6 +10,11 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
+        $product = Product::query()->orderBy("id")->with('typeProduct');
+        return response()->json($product->get(), 200);
+    }
+    public function indexViewUser(Request $request)
+    {
         $totalProduct = Product::count();
         $product = Product::query()->
             // where('name', 'like', "%{$request->search}%")
