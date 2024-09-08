@@ -63,7 +63,7 @@ Route::group([
     Route::delete('type-product/{id}', [TypeProductController::class, 'destroy']);
 
     //Product
-    Route::get('product', [ProductController::class, 'index']);
+    Route::post('list-product', [ProductController::class, 'index']);
     Route::post('product', [ProductController::class, 'store']);
     Route::post('product/{id}', [ProductController::class, 'update']);
     Route::delete('product/{id}', [ProductController::class, 'destroy']);
@@ -82,3 +82,5 @@ Route::group([
     // Password
     Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
+
+Route::post('list-product', [ProductController::class, 'index']);

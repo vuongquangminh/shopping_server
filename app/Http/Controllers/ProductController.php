@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        // dd($request);
         $product = Product::query()->orderBy("id")->with('typeProduct');
         return response()->json($product->get(), 200);
     }

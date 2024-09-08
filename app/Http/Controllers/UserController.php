@@ -87,7 +87,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $id . '|max:255',
-            'password' => 'required',
+            // 'password' => 'required',
             'phone' => 'required|numeric',
             'address' => 'required|max:255',
             'role_name' => 'required|max:255',
@@ -120,7 +120,7 @@ class UserController extends Controller
             $data =  $query->update([
                 'name' => $request['name'],
                 'email' => $request['email'],
-                'password' => Hash::make($request['password']),
+                'password' => $request['password'] ? Hash::make($request['password']) : $query->password,
                 'phone' => $request['phone'],
                 'address' => $request['address'],
                 'role_name' => $request['role_name'],
