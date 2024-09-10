@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CungCapController;
 use App\Http\Controllers\DoanhSoController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Passwordcontroller;
@@ -50,10 +51,6 @@ Route::group([
     Route::post('user/{id}', [UserController::class, 'update']);
     Route::delete('user/{id}', [UserController::class, 'destroy']);
 
-    // Admin / Nhan su / Khach Hang
-    Route::get('user/customers/all', [UserController::class, 'customersAll']);
-    Route::get('user/nhan-su/all', [UserController::class, 'nhanSuAll']);
-
 
 
     // Type Product
@@ -83,4 +80,21 @@ Route::group([
     Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
 
+
 Route::post('list-product-user', [ProductController::class, 'indexViewUser']);
+
+
+
+// Api cung cấp ( Admin / Nhan su / Khach Hang / Chips / Mau sac /  Dung luong )
+
+Route::group([
+    'middleware' => 'api',
+    'role' => 'admin'
+], function () {
+    Route::get('user/customers/all', [CungCapController::class, 'customersAll']);
+    Route::get('user/nhan-su/all', [CungCapController::class, 'nhanSuAll']);
+
+    Route::get('list-dung-luongs', [CungCapController::class, 'dungLuongs']);
+    Route::post('list-chips', [CungCapController::class, 'chips']);
+    Route::post('list-mau-sacs', [CungCapController::class, 'mauSacs']);
+});

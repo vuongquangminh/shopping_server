@@ -156,16 +156,4 @@ class UserController extends Controller
             'message' => 'Chỉnh sửa người dùng không thành công'
         ], 200);
     }
-
-    // Nhan su / Khach hang
-    public function customersAll()
-    {
-        $query = User::query()->where('role_name', 'customer');
-        return response()->json($query->get());
-    }
-    public function nhanSuAll()
-    {
-        $query = User::query()->where('role_name', 'nhan_su');
-        return response()->json($query->get());
-    }
 }

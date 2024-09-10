@@ -19,4 +19,14 @@ class TypeProduct extends Model
     {
         return $this->hasMany(Product::class, 'type_product_id');
     }
+
+    public function mauSac()
+    {
+        return $this->hasMany(MauSac::class, 'type_product_id');
+    }
+
+    public function chip()
+    {
+        return $this->hasMany(Chip::class, 'type_product_id');
+    }
 }
