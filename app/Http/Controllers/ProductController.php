@@ -29,6 +29,10 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'type_product_id' => 'required|integer',
             'description' => 'nullable|string',
+            'camera' => 'nullable|string',
+            'chip_id' => 'nullable|integer',
+            'dung_luong_id' => 'nullable|integer',
+            'mau_sac_id' => 'nullable|integer',
             'price' => 'required|integer',
             'so_luong' => 'required|integer',
         ]);
@@ -52,6 +56,10 @@ class ProductController extends Controller
                 'type_product_id' => $request['type_product_id'],
                 'description' => $request['description'],
                 'price' => $request['price'],
+                'camera' => $request['camera'],
+                'chip_id' => $request['chip_id'],
+                'dung_luong_id' => $request['dung_luong_id'],
+                'mau_sac_id' => $request['mau_sac_id'],
                 'so_luong' => $request['so_luong'],
                 'image' => $public_url,
             ]);
@@ -66,6 +74,10 @@ class ProductController extends Controller
                 'description' => $request['description'],
                 'price' => $request['price'],
                 'so_luong' => $request['so_luong'],
+                'camera' => $request['camera'],
+                'chip_id' => $request['chip_id'],
+                'dung_luong_id' => $request['dung_luong_id'],
+                'mau_sac_id' => $request['mau_sac_id'],
             ]);
             return response()->json([
                 'data' => $data,
@@ -88,6 +100,10 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|integer',
             'so_luong' => 'required|integer',
+            'camera' => 'nullable|string',
+            'chip_id' => 'nullable|integer',
+            'dung_luong_id' => 'nullable|integer',
+            'mau_sac_id' => 'nullable|integer',
         ]);
 
 
@@ -118,6 +134,10 @@ class ProductController extends Controller
                 'description' => $request['description'],
                 'price' => $request['price'],
                 'so_luong' => $request['so_luong'],
+                'camera' => $request['camera'],
+                'chip_id' => $request['chip_id'],
+                'dung_luong_id' => $request['dung_luong_id'],
+                'mau_sac_id' => $request['mau_sac_id'],
                 'image' => $public_url,
             ]);
             return response()->json([
@@ -131,6 +151,10 @@ class ProductController extends Controller
                 'description' => $request['description'],
                 'price' => $request['price'],
                 'so_luong' => $request['so_luong'],
+                'camera' => $request['camera'],
+                'chip_id' => $request['chip_id'],
+                'dung_luong_id' => $request['dung_luong_id'],
+                'mau_sac_id' => $request['mau_sac_id'],
                 'image' => '',
             ]);
             return response()->json([

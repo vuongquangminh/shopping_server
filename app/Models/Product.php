@@ -16,6 +16,10 @@ class Product extends Model
         'price',
         'image',
         'so_luong',
+        'camera',
+        'chip_id',
+        'dung_luong_id',
+        'mau_sac_id',
     ];
 
 
