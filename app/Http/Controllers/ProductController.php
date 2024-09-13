@@ -13,6 +13,11 @@ class ProductController extends Controller
         $product = Product::query()->orderBy("id")->with('typeProduct');
         return response()->json($product->get(), 200);
     }
+    public function show(Request $request, $id)
+    {
+        $query = Product::findOrFail($id);
+        return $query;
+    }
     public function indexViewUser(Request $request)
     {
         $totalProduct = Product::count();

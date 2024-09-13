@@ -82,7 +82,7 @@ Route::group([
 
 
 Route::post('list-product-user', [ProductController::class, 'indexViewUser']);
-
+Route::get('product/{id}', [ProductController::class, 'show']);
 
 
 // Api cung cấp ( Admin / Nhan su / Khach Hang / Chips / Mau sac /  Dung luong )
