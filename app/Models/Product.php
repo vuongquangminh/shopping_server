@@ -32,4 +32,19 @@ class Product extends Model
     {
         return $this->hasMany(OrderProduct::class, 'product_id');
     }
+
+    public function chip()
+    {
+        return $this->belongsTo(Chip::class, 'chip_id');
+    }
+
+    public function dungLuong()
+    {
+        return $this->belongsTo(DungLuong::class, 'dung_luong_id');
+    }
+
+    public function mauSac()
+    {
+        return $this->belongsTo(MauSac::class, 'mau_sac_id');
+    }
 }

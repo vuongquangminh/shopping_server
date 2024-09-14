@@ -15,8 +15,8 @@ class ProductController extends Controller
     }
     public function show(Request $request, $id)
     {
-        $query = Product::findOrFail($id);
-        return $query;
+        $query = Product::query()->where('id', $id)->with(['chip', 'typeProduct']);
+        return $query->get();
     }
     public function indexViewUser(Request $request)
     {
