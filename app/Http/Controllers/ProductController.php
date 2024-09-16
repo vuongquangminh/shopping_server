@@ -43,6 +43,8 @@ class ProductController extends Controller
             'man_hinh' => 'nullable|string',
             'price' => 'required|integer',
             'so_luong' => 'required|integer',
+            'chong_nuoc' => 'nullable|string',
+
         ]);
 
         if ($request->hasFile('image')) {
@@ -72,6 +74,7 @@ class ProductController extends Controller
                 'pin' => $request['pin'],
                 'bao_mat' => $request['bao_mat'],
                 'man_hinh' => $request['man_hinh'],
+                'chong_nuoc' => $request['chong_nuoc'],
                 'image' => $public_url,
             ]);
             return response()->json([
@@ -92,6 +95,7 @@ class ProductController extends Controller
                 'pin' => $request['pin'],
                 'bao_mat' => $request['bao_mat'],
                 'man_hinh' => $request['man_hinh'],
+                'chong_nuoc' => $request['chong_nuoc'],
             ]);
             return response()->json([
                 'data' => $data,
@@ -121,6 +125,7 @@ class ProductController extends Controller
             'bao_mat' => 'nullable|string',
             'man_hinh' => 'nullable|string',
             'mau_sac' => 'nullable|string',
+            'chong_nuoc' => 'nullable|string',
 
         ]);
 
@@ -158,6 +163,7 @@ class ProductController extends Controller
                 'mau_sac' => $request['mau_sac'],
                 'pin' => $request['pin'],
                 'bao_mat' => $request['bao_mat'],
+                'chong_nuoc' => $request['chong_nuoc'],
                 'man_hinh' => $request['man_hinh'],
                 'image' => $public_url,
             ]);
@@ -179,6 +185,7 @@ class ProductController extends Controller
                 'pin' => $request['pin'],
                 'bao_mat' => $request['bao_mat'],
                 'man_hinh' => $request['man_hinh'],
+                'chong_nuoc' => $request['chong_nuoc'],
                 'image' => '',
             ]);
             return response()->json([

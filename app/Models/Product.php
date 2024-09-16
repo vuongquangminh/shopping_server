@@ -20,6 +20,10 @@ class Product extends Model
         'chip_id',
         'dung_luong_id',
         'mau_sac',
+        'man_hinh',
+        'bao_mat',
+        'chong_nuoc',
+        'pin',
     ];
 
 
