@@ -37,7 +37,10 @@ class ProductController extends Controller
             'camera' => 'nullable|string',
             'chip_id' => 'nullable|integer',
             'dung_luong_id' => 'nullable|integer',
-            'mau_sac_id' => 'nullable|integer',
+            'mau_sac' => 'nullable|string',
+            'pin' => 'nullable|string',
+            'bao_mat' => 'nullable|string',
+            'man_hinh' => 'nullable|string',
             'price' => 'required|integer',
             'so_luong' => 'required|integer',
         ]);
@@ -64,8 +67,11 @@ class ProductController extends Controller
                 'camera' => $request['camera'],
                 'chip_id' => $request['chip_id'],
                 'dung_luong_id' => $request['dung_luong_id'],
-                'mau_sac_id' => $request['mau_sac_id'],
+                'mau_sac' => $request['mau_sac'],
                 'so_luong' => $request['so_luong'],
+                'pin' => $request['pin'],
+                'bao_mat' => $request['bao_mat'],
+                'man_hinh' => $request['man_hinh'],
                 'image' => $public_url,
             ]);
             return response()->json([
@@ -82,7 +88,10 @@ class ProductController extends Controller
                 'camera' => $request['camera'],
                 'chip_id' => $request['chip_id'],
                 'dung_luong_id' => $request['dung_luong_id'],
-                'mau_sac_id' => $request['mau_sac_id'],
+                'mau_sac' => $request['mau_sac'],
+                'pin' => $request['pin'],
+                'bao_mat' => $request['bao_mat'],
+                'man_hinh' => $request['man_hinh'],
             ]);
             return response()->json([
                 'data' => $data,
@@ -108,7 +117,11 @@ class ProductController extends Controller
             'camera' => 'nullable|string',
             'chip_id' => 'nullable|integer',
             'dung_luong_id' => 'nullable|integer',
-            'mau_sac_id' => 'nullable|integer',
+            'pin' => 'nullable|string',
+            'bao_mat' => 'nullable|string',
+            'man_hinh' => 'nullable|string',
+            'mau_sac' => 'nullable|string',
+
         ]);
 
 
@@ -142,7 +155,10 @@ class ProductController extends Controller
                 'camera' => $request['camera'],
                 'chip_id' => $request['chip_id'],
                 'dung_luong_id' => $request['dung_luong_id'],
-                'mau_sac_id' => $request['mau_sac_id'],
+                'mau_sac' => $request['mau_sac'],
+                'pin' => $request['pin'],
+                'bao_mat' => $request['bao_mat'],
+                'man_hinh' => $request['man_hinh'],
                 'image' => $public_url,
             ]);
             return response()->json([
@@ -159,7 +175,10 @@ class ProductController extends Controller
                 'camera' => $request['camera'],
                 'chip_id' => $request['chip_id'],
                 'dung_luong_id' => $request['dung_luong_id'],
-                'mau_sac_id' => $request['mau_sac_id'],
+                'mau_sac' => $request['mau_sac'],
+                'pin' => $request['pin'],
+                'bao_mat' => $request['bao_mat'],
+                'man_hinh' => $request['man_hinh'],
                 'image' => '',
             ]);
             return response()->json([

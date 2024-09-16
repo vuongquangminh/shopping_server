@@ -19,7 +19,7 @@ class Product extends Model
         'camera',
         'chip_id',
         'dung_luong_id',
-        'mau_sac_id',
+        'mau_sac',
     ];
 
 
@@ -43,8 +43,8 @@ class Product extends Model
         return $this->belongsTo(DungLuong::class, 'dung_luong_id');
     }
 
-    public function mauSac()
-    {
-        return $this->belongsTo(MauSac::class, 'mau_sac_id');
-    }
+    // public function mauSac()
+    // {
+    //     return $this->belongsTo(MauSac::class, 'mau_sac_id');
+    // }
 }

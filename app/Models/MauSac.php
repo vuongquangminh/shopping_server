@@ -16,10 +16,10 @@ class MauSac extends Model
 
     ];
 
-    public function product()
-    {
-        return $this->hasMany(Product::class, 'mau_sac_id');
-    }
+    // public function product()
+    // {
+    //     return $this->hasMany(Product::class, 'mau_sac_id');
+    // }
 
     public function typeProduct()
     {
