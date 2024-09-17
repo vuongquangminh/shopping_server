@@ -47,6 +47,11 @@ class Product extends Model
         return $this->belongsTo(DungLuong::class, 'dung_luong_id');
     }
 
+    public function product()
+    {
+        return $this->hasMany(Cart::class, 'product_id');
+    }
+
     // public function mauSac()
     // {
     //     return $this->belongsTo(MauSac::class, 'mau_sac_id');
