@@ -19,7 +19,7 @@ class CartController extends Controller
     }
     public function show(Request $request, $id)
     {
-        $query = Cart::query()->where('user_id', $id) // Tính tổng total_price
+        $query = Cart::query()->where('user_id', $id)->with('product') // Tính tổng total_price
             ->get();
 
         return $query;

@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 //Auth
 Route::group([
-
     'middleware' => 'api',
     'prefix' => 'auth'
 
@@ -81,6 +80,12 @@ Route::group([
     Route::get('doanh-so', [DoanhSoController::class, 'index']);
 
     // Password
+});
+
+Route::group([
+    'middleware' => 'api',
+
+], function () {
     Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
 
