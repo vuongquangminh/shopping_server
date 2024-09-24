@@ -102,6 +102,7 @@ Route::group([
 
     Route::post('cart/{id}', [CartController::class, 'show']);
     Route::post('cart', [CartController::class, 'store']);
+    Route::put('cart-row-field/{id}', [CartController::class, 'updateRowField']);
 });
 
 

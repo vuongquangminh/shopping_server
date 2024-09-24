@@ -43,4 +43,21 @@ class CartController extends Controller
             'message' => 'Thêm sản phẩm vào giỏ hàng thành công'
         ]);
     }
+
+    public function updateRowField(Request $request, $id)
+    {
+        $field = $request->field; // Tên trường cần update
+        $value = $request[$field];
+        $price = $request->price;
+        if (!$value) {
+            return response()->json([
+                'message' => 'Chỉnh sửa thaat bại',
+            ], 400);
+        }
+        $query = Cart::findOrFail($id)->update([$field => $value, 'total_price' => $value * $price]);
+        return response()->json([
+            'message' => 'Chỉnh sửa thành công',
+            'data' => $query
+        ]);
+    }
 }
