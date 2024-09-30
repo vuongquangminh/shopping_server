@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CungCapController;
 use App\Http\Controllers\DoanhSoController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderCustomerController;
 use App\Http\Controllers\Passwordcontroller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TypeProductController;
@@ -84,7 +85,6 @@ Route::group([
 
 Route::group([
     'middleware' => 'api',
-
 ], function () {
     Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
@@ -95,6 +95,13 @@ Route::get('product/{id}', [ProductController::class, 'show']);
 
 // Api cung cấp ( Admin / Nhan su / Khach Hang / Chips / Mau sac /  Dung luong )
 
+// Route::group([
+//     'middleware' => 'api',
+//     'role' => ['customer', 'admin']
+// ], function () {
+//     Route::get('order/{id}', [OrderController::class, 'show']);
+// });
+
 Route::group([
     'middleware' => 'api',
     'role' => 'customer'
@@ -103,8 +110,12 @@ Route::group([
     Route::post('cart/{id}', [CartController::class, 'show']);
     Route::post('cart', [CartController::class, 'store']);
     Route::put('cart-row-field/{id}', [CartController::class, 'updateRowField']);
+    Route::delete('cart/{id}', [CartController::class, 'destroy']);
 
-    Route::post('order', [OrderController::class, 'store']);
+    Route::post('list-order', [OrderCustomerController::class, 'index']);
+    Route::post('order', [OrderCustomerController::class, 'store']);
+    Route::post('cus-order/{id}', [OrderCustomerController::class, 'show']);
+    Route::delete('cus-order/{id}', [OrderCustomerController::class, 'destroy']);
 });
 
 

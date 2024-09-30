@@ -60,4 +60,14 @@ class CartController extends Controller
             'data' => $query
         ]);
     }
+
+    public function destroy($id)
+    {
+        $query = Cart::findOrFail($id);
+        $query->delete();
+        return response()->json([
+            'message' => "Xóa thành công",
+            'data' => $query
+        ]);
+    }
 }
