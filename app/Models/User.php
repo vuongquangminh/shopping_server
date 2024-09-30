@@ -73,6 +73,12 @@ class User extends Authenticatable implements JWTSubject
     {
         // Giả sử bạn lưu vai trò của người dùng trong một thuộc tính `role`
         // Bạn cần điều chỉnh theo cách bạn lưu trữ vai trò (trong database hay là một hệ thống phân quyền khác)
+        // return $this->role_name === $role;
+        if (is_array($role)) {
+            return in_array($this->role_name, $role);
+        }
+
+        // Nếu $role là một chuỗi, so sánh trực tiếp
         return $this->role_name === $role;
     }
 }

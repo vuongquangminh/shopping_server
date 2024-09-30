@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
@@ -34,7 +35,9 @@ class OrderCustomerController extends Controller
                     'order_id' => $order->id,
                     'so_luong' => $datHang['so_luong'],
                 ]);
+                Cart::find($datHang['id'])->delete();
             };
+
             return response()->json([
                 'message' => "Thành công",
                 'data' => $order

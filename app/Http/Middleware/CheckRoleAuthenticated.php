@@ -15,6 +15,7 @@ class CheckRoleAuthenticated
      */
     public function handle($request, Closure $next, $role)
     {
+        $role = explode(';', $role);
         // Kiểm tra nếu người dùng không có vai trò cần thiết
         if (!$request->user() || !$request->user()->hasRole($role)) {
             // Trả về lỗi 403 nếu không có quyền

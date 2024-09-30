@@ -41,8 +41,7 @@ Route::group([
 
 //User
 Route::group([
-    'middleware' => 'api',
-    'role' => 'admin'
+    'middleware' => ['api', 'role:admin']
 ], function () {
 
     // User
@@ -81,30 +80,21 @@ Route::group([
     Route::get('doanh-so', [DoanhSoController::class, 'index']);
 
     // Password
+
+
+    //api Cung cấp select
+    Route::get('user/customers/all', [CungCapController::class, 'customersAll']);
+    Route::get('user/nhan-su/all', [CungCapController::class, 'nhanSuAll']);
+
+    Route::get('list-dung-luongs', [CungCapController::class, 'dungLuongs']);
+    Route::post('list-chips', [CungCapController::class, 'chips']);
+    Route::post('list-mau-sacs', [CungCapController::class, 'mauSacs']);
 });
 
+// Customer
 Route::group([
-    'middleware' => 'api',
-], function () {
-    Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
-});
+    'middleware' => ['api', 'role:customer'],
 
-
-Route::post('list-product-user', [ProductController::class, 'indexViewUser']);
-Route::get('product/{id}', [ProductController::class, 'show']);
-
-// Api cung cấp ( Admin / Nhan su / Khach Hang / Chips / Mau sac /  Dung luong )
-
-// Route::group([
-//     'middleware' => 'api',
-//     'role' => ['customer', 'admin']
-// ], function () {
-//     Route::get('order/{id}', [OrderController::class, 'show']);
-// });
-
-Route::group([
-    'middleware' => 'api',
-    'role' => 'customer'
 ], function () {
 
     Route::post('cart/{id}', [CartController::class, 'show']);
@@ -118,15 +108,18 @@ Route::group([
     Route::delete('cus-order/{id}', [OrderCustomerController::class, 'destroy']);
 });
 
-
+// chung
 Route::group([
-    'middleware' => 'api',
-    'role' => 'admin'
+    'middleware' => [
+        'api',
+        'role:admin' . ';' . 'customer'
+    ]
 ], function () {
-    Route::get('user/customers/all', [CungCapController::class, 'customersAll']);
-    Route::get('user/nhan-su/all', [CungCapController::class, 'nhanSuAll']);
-
-    Route::get('list-dung-luongs', [CungCapController::class, 'dungLuongs']);
-    Route::post('list-chips', [CungCapController::class, 'chips']);
-    Route::post('list-mau-sacs', [CungCapController::class, 'mauSacs']);
+    Route::get('order/{id}', [OrderController::class, 'show']);
+    Route::post('doi-mat-khau', [Passwordcontroller::class, 'index']);
 });
+
+
+
+Route::post('list-product-user', [ProductController::class, 'indexViewUser']);
+Route::get('product/{id}', [ProductController::class, 'show']);
