@@ -32,8 +32,18 @@ class OrderController extends Controller
         // return $data;
         $data->update([
             "nhan_su_id" => $nhan_su_id,
-            "ngay_han" => $ngay_han
+            "ngay_han" => $ngay_han,
+            "status" => "cho_nhan_viec"
         ]);
         return response()->json($data, 200);
+    }
+
+    public function destroy($id)
+    {
+        $query = Order::findOrFail($id);
+        $query->update([
+            'status' => 'huy'
+        ]);
+        return response(['message' => "Hủy đơn thành công"], 200);
     }
 }
