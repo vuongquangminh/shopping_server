@@ -18,10 +18,10 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('total_price');
-            $table->integer('nhan_su_id');
+            $table->integer('nhan_su_id')->nullable();
             $table->foreign('nhan_su_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('ngay_han')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
