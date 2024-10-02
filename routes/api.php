@@ -115,6 +115,8 @@ Route::group([
 
 ], function () {
     Route::get('nhiem-vu', [NhiemVuController::class, 'index']);
+    Route::post('xac-nhan-nhiem-vu/{id}', [NhiemVuController::class, 'nhiemVu']);
+    Route::post('cap-nhat-don-hang/{id}', [NhiemVuController::class, 'donHang']);
 });
 
 // chung
