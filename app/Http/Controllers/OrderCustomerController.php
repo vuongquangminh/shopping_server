@@ -26,7 +26,7 @@ class OrderCustomerController extends Controller
             $order = Order::create([
                 'user_id' => $user_id,
                 'total_price' => $request->total_price,
-                'status' => "cho_nhan_viec"
+                'status' => "cho_xac_nhan"
             ]);
             $datHangs = $request->datHangs;
             foreach ($datHangs as $datHang) {

@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CungCapController;
 use App\Http\Controllers\DoanhSoController;
+use App\Http\Controllers\NhiemVuController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderCustomerController;
 use App\Http\Controllers\Passwordcontroller;
@@ -106,6 +107,14 @@ Route::group([
     Route::post('order', [OrderCustomerController::class, 'store']);
     Route::post('cus-order/{id}', [OrderCustomerController::class, 'show']);
     Route::delete('cus-order/{id}', [OrderCustomerController::class, 'destroy']);
+});
+
+// Nhân sự
+Route::group([
+    'middleware' => ['api', 'role:nhan_su'],
+
+], function () {
+    Route::get('nhiem-vu', [NhiemVuController::class, 'index']);
 });
 
 // chung
