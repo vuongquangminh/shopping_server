@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmail;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,7 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
         $user_id = Auth::user()->id;
         $product_id = $request->input('product_id');
         $so_luong = $request->input('so_luong');
@@ -37,6 +39,7 @@ class CartController extends Controller
             'so_luong' => $so_luong,
             'total_price' => $total_price
         ]);
+        SendEmail::dispatchSync($user->email, $data);
 
         return response()->json([
             'data' => $data,
